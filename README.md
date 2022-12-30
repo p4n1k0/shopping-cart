@@ -342,3 +342,5 @@ O [manual da API do Mercado Livre](https://developers.mercadolivre.com.br/pt_br/
     <summary><strong>🗣 Me dê feedbacks sobre o projeto!</strong></summary> <br />
  
   </details>  
+  
+  ref: trybe
