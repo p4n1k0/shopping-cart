@@ -9,8 +9,6 @@ Para isso, consumi dados diretamente de uma **API!** 🤩
 
 Uma API é um ponto de contato na internet com determinado serviço e nesse projeto foi utilizado a API do Mercado Livre para buscar produtos à venda. 🏷
 
-E não para por aí! 🤩
-
 Nesse projeto também tive a experiência de pôr em prática o desenvolvimento orientado a testes, o famoso TDD (Test Driven Development)! Que ajuda a garantir um código de qualidade, percebendo os casos de uso da sua aplicação e garantindo que ela está funcionando da maneira correta! 🚀
 
 Comportamento parecido com o gif abaixo:
