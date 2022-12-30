@@ -1,5 +1,3 @@
-const saveCartItems = require('./helpers/saveCartItems');
-
 const items = document.querySelector('.items');
 const cartItems = document.querySelector('.cart__items');
 const emptyCart = document.querySelector('.empty-cart');
