@@ -101,4 +101,5 @@ window.onload = async () => {
    await searchProducts('computador');
    addToCart();
    removeItems();
+   getSavedCartItems();
 };
