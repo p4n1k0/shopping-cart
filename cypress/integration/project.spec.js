@@ -127,7 +127,7 @@ describe('Shopping Cart Project', () => {
     });
   });
 
-  describe('8 - Carregue o carrinho de compras através do **LocalStorage** ao iniciar a página', () => {
+  describe.only('8 - Carregue o carrinho de compras através do **LocalStorage** ao iniciar a página', () => {
     it('Carregue o carrinho de compras através do **LocalStorage** ao iniciar a página', () => {
       let first = 36;
       let last = 29;

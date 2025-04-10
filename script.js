@@ -19,7 +19,7 @@ function createCustomElement(element, className, innerText) {
 }
 
 function createProductItemElement({ sku, name, image }) {
-  const section = document.createElement('section'); 
+  const section = document.createElement('section');
 
   section.className = 'item';
   section.appendChild(createCustomElement('span', 'item__sku', sku));
@@ -30,9 +30,9 @@ function createProductItemElement({ sku, name, image }) {
   return section;
 }
 
-// function getSkuFromProductItem(item) {
-//   return item.querySelector('span.item__sku').innerText;
-// }
+function getSkuFromProductItem(item) {
+  return item.querySelector('span.item__sku').innerText;
+}
 
 function cartItemClickListener(event) {
   const click = event.target;
@@ -40,7 +40,12 @@ function cartItemClickListener(event) {
   saveCartItems(cartItems.innerHTML);
 }
 
-function createCartItemElement({ sku, name, salePrice }) {  
+const nativeItems = () => {
+  cartItems.addEventListener('click', cartItemClickListener);
+};
+nativeItems();
+
+function createCartItemElement({ sku, name, salePrice }) {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
@@ -48,40 +53,24 @@ function createCartItemElement({ sku, name, salePrice }) {
   return li;
 }
 
-cartItems.addEventListener('click', cartItemClickListener);
-
 async function removeLoading() {
   document.querySelector('.loading').remove();
 }
 
-async function searchProducts(products) {
-  const data = await fetchProducts(products);
-  removeLoading();
-  const dataPath = await data.results;
-   const productItem = dataPath.map((item) => {
-     const objItem = {
-       sku: item.id,
-       name: item.title,
-       image: item.thumbnail,
-     };
-     return items.appendChild(createProductItemElement(objItem));
-    });
-return productItem;
-}
-
-async function elements(id) {
-  const data = await fetchItem(id);
-  const objItem = {
+const elements = async (ItemID) => {
+  const data = await fetchItem(ItemID);
+  const obj = {
     sku: data.id,
     name: data.title,
     salePrice: data.price,
-  };  
-  cartItems.appendChild(createCartItemElement(objItem));   
+  };
+  const list = createCartItemElement(obj); 
+  cartItems.appendChild(list);
   saveCartItems(cartItems.innerHTML);
-}
+};
 
-function addToCart() {
-  items.addEventListener('click', (event) => { 
+const addToCart = () => {
+  items.addEventListener('click', (event) => {
     if (event.target.className === 'item__add') {
       const click = event.target;
       const ids = click.parentNode;
@@ -89,18 +78,36 @@ function addToCart() {
 
       return elements($ItemID);
     }
-  });  
-} 
-
-function removeItems() {
-  emptyCart.addEventListener('click', () => {
-    cartItems.innerHTML = '';
-  });  
+  });
 }
- 
+
+const removeItems = () => {
+  emptyCart.addEventListener(('click'), () => {
+    cartItems.innerHTML = '';
+    saveCartItems(cartItems.innerHTML);
+  });
+}
+
+const searchProducts = async () => {
+  const data = await fetchProducts('computador');
+  const dataPath = await data.results;
+  const productItem = dataPath.map((item) => {
+    const objItem = {
+      sku: item.id,
+      name: item.title,
+      image: item.thumbnail,
+    };
+    return items.appendChild(createProductItemElement(objItem));
+  });
+
+  addToCart();
+  removeLoading();
+  return productItem;
+}
+
+
 window.onload = async () => {
-   await searchProducts('computador');
-   addToCart();
-   removeItems();
-   getSavedCartItems();
+  cartItems.innerHTML = getSavedCartItems();
+  searchProducts();
+  removeItems();
 };
