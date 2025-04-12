@@ -105,6 +105,7 @@ const removeItems = () => {
 
 const searchProducts = async () => {
   const data = await fetchProducts('computador');
+  removeLoading();
   const dataPath = await data.results;
   const productItem = dataPath.map((item) => {
     const objItem = {
@@ -115,7 +116,6 @@ const searchProducts = async () => {
     return items.appendChild(createProductItemElement(objItem));
   });
   addToCart();
-  removeLoading();
   return productItem;
 }
 

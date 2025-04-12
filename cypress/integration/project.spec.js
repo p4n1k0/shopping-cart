@@ -198,7 +198,7 @@ describe('Shopping Cart Project', () => {
     })
   });
 
-  describe.only('9 - Calcule o valor total dos itens do carrinho de compras de forma assíncrona', () => {
+  describe('9 - Calcule o valor total dos itens do carrinho de compras de forma assíncrona', () => {
     it('Calcule o valor total dos itens do carrinho de compras de forma assíncrona', () => {
       cy.visit(PROJECT_URL, {
         onBeforeLoad(win) {
