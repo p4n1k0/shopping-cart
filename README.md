@@ -17,22 +17,6 @@ Comportamento parecido com o gif abaixo:
 
 </details>
 
-Para executar meus testes, execute o comando abaixo:
-
-```bash
-npm test
-```
-
-Para executar e acompanhar a implementação da minha cobertura de testes, rode o comando abaixo:
-
-```bash
-npm run test:coverage
-```
-
-Ao realizar o comando de cobertura de testes terá um resultado similar a este:
-
-![Cobertura de Testes](cobertura.png)
-
 Para avaliar o meu projeto como um todo, será utilizado o _Cypress_.
 
 ### Cypress
@@ -342,5 +326,3 @@ O [manual da API do Mercado Livre](https://developers.mercadolivre.com.br/pt_br/
     <summary><strong>🗣 Me dê feedbacks sobre o projeto!</strong></summary> <br />
  
   </details>  
-  
-  ref: trybe
