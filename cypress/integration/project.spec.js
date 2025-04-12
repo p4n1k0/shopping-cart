@@ -127,7 +127,7 @@ describe('Shopping Cart Project', () => {
     });
   });
 
-  describe.only('8 - Carregue o carrinho de compras através do **LocalStorage** ao iniciar a página', () => {
+  describe('8 - Carregue o carrinho de compras através do **LocalStorage** ao iniciar a página', () => {
     it('Carregue o carrinho de compras através do **LocalStorage** ao iniciar a página', () => {
       let first = 36;
       let last = 29;
@@ -198,7 +198,7 @@ describe('Shopping Cart Project', () => {
     })
   });
 
-  describe('9 - Calcule o valor total dos itens do carrinho de compras de forma assíncrona', () => {
+  describe.only('9 - Calcule o valor total dos itens do carrinho de compras de forma assíncrona', () => {
     it('Calcule o valor total dos itens do carrinho de compras de forma assíncrona', () => {
       cy.visit(PROJECT_URL, {
         onBeforeLoad(win) {
